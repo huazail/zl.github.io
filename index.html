@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>谷雨前端学习小站</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+  <link href='http://fonts.useso.com/css?family=Raleway:400,700,200,100,300,500,600,800,900' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.useso.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="../Blog/icon/favicon.ico" type="image/x-icon">
+  <link href='http://fonts.useso.com/css?family=Source+Sans+Pro:200,300,400,600,700,700italic,900,400italic,300italic' rel='stylesheet' type='text/css'>
+  <script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.sticky.js"></script>
+  <script>
+    $(window).load(function(){
+      $("#menu").sticky({ topSpacing: 0 });
+  
+    });
+  </script>
+  <script>
+    //  音乐控件 谷歌不兼容audio自动播放
+    function d1(){
+      var music=document.getElementById("music");
+      var imgs=document.getElementById("zt")
+      // console.log(imgs)
+      // console.log(music.dataset["name"])
+      if(music.dataset["name"]=="true"){
+        music.play();
+        imgs.src="../Blog/icon/onin.png"
+        music.dataset["name"]=false;
+      }else{
+        music.pause();
+        imgs.src="../Blog/icon/in.png";
+        music.dataset["name"]=true;
+      }
+      // console.log(music.dataset["name"])
+    }
+    // 定时器控制自动播放
+    setTimeout(function () { 
+        var music=document.getElementById("music");
+        music.play();
+    }, 1000);
+
+    var musics=[
+      {
+        id:0,
+        src:"../Blog/yinyue/0.mp3"
+      },
+      {
+        id:1,
+        src:"../Blog/yinyue/1.mp3"
+      },
+      {
+        id:2,
+        src:"../Blog/yinyue/2.mp3"
+      },
+      {
+        id:3,
+        src:"../Blog/yinyue/3.mp3"
+      },
+      {
+        id:4,
+        src:"../Blog/yinyue/4.mp3"
+      },
+      {
+        id:5,
+        src:"../Blog/yinyue/5.mp3"
+      },
+      {
+        id:6,
+        src:"../Blog/yinyue/6.mp3"
+      },
+      
+      {
+        id:7,
+        src:"../Blog/yinyue/7.mp3"
+      },
+      {
+        id:8,
+        src:"../Blog/yinyue/8.mp3"
+      }
+    ]
+  
+    function ht(){
+    var music=document.getElementById("music");
+    var imgs=document.getElementById("zt");
+     music.play();
+     imgs.src="../Blog/icon/onin.png"
+
+    for(var musicsrc of musics){
+     if(musicsrc.id>0){
+       musicsrc.id--;
+     }
+    }
+    music.src=musics[musicsrc.id].src;
+       console.log(music.src)
+       music.play();
+   }
+
+   function qj(){
+    var music=document.getElementById("music");
+    var imgs=document.getElementById("zt");
+     music.play();
+     imgs.src="../Blog/icon/onin.png";
+
+    for(var musicsrc of musics){
+      if(musicsrc.id<musics.length){
+       musicsrc.id++;
+    }
+    }
+    music.src=musics[musicsrc.id].src;
+       console.log(music.src)
+       music.play();
+   }
+  </script>
+  
+  </head>
+  <body>
+    <!-- 顶部介绍 -->
+<div class="container-fluid banner text-center" id="banner"> 
+ 
+      <!-- 使用栅格布局 -->
+    
+    <div class="row">
+    <div class="col-md-12 line">
+        <div class="tablebox">
+        <div class="banner-text" id="bannertext">
+            <h1 class="hostyle" id="heads">Hello,I'm leizhang</h1>
+            <p class="pstyle">一个有故事的前端程序员</p>
+            <a href="#features" class="page-scroll arrow"><i class="fa fa-angle-down"></i></a>
+          </div>
+      </div>
+      </div>
+    
+    </div>
+  </div>
+  </div>
+  <!-- 音乐控件 -->
+  <div   class="music text-center">
+    <img class="imgspro" src="../Blog/icon/go0.png" alt="" onclick="ht()">
+    <img class="imgspro" src="../Blog/icon/onin.png" alt="" onclick="d1()" id="zt">
+    <img class="imgspro" src="../Blog/icon/go1.png" alt="" onclick="qj()">
+    <audio src="../Blog/yinyue/1.mp3" id="music" data-name="true"></audio>
+  </div>
+
+  <script>
+       
+  </script>
+  </script>
+
+    <!-- 顶部结束 -->
+    <!-- 导航页 -->
+<div class="navbar menubar" id="menu">
+    <div class="container">
+    <div class="navbar-header"> 
+    	<button type="button" class="navbar-toggle menu-button" data-toggle="collapse" data-target="#myNavbar">
+			<span class="glyphicon glyphicon-align-justify"></span>
+		 </button>
+    <a class="navbar-brand logo" href="#">谷雨 Blog</a> 
+    </div>
+    <div>
+    	<nav class="collapse navbar-collapse" id="myNavbar" role="navigation">
+        <ul class="nav navbar-nav navbar-right navstyle">
+        <li><a href="#banner" class="page-scroll active">回到顶部</a></li>
+        <li><a href="#" class="page-scroll active">技术小站</a></li>
+        <li><a href="#features" class="page-scroll">关于我</a></li>
+        <li><a href="#gallery" class="page-scroll">作品集</a></li>
+        <li><a href="#about" class="page-scroll">技术栈</a></li>
+        <li><a href="#testimonials" class="page-scroll">前端四年</a></li>
+        <li><a href="./pro/resume/index.html" target="_blank" class="page-scroll">联系我</a></li>
+      </ul>
+      </nav>
+      </div>
+  </div>
+  </div>
+  <!-- 导航页结束 -->
+<div class="features" id="features">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alldesc">
+            <div class=" col-md-6 col-sm-6 col-xs-12 centertext">
+            <p class="all-td">What's Coming New</p>
+            <h2>About me</h2>
+          </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            <p class="desc">Life can't be as good as you think 
+                            But it's not as bad as you think
+                            I think people are more fragile and stronger than I ever imagined
+                            Sometimes, I may be so weak that I burst into tears at a word
+                            Sometimes I find myself walking a long way [sun] through clenched teeth
+              </p>
+          </div>
+          </div>
+      </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 featurebox text-center ">
+          <div class="">
+            <img class="me" src="../Blog/img/me.png" alt="">
+          </div>
+      </div>
+      <div class="col-md-6 col-sm-12 col-xs-12 me_introduce col-md-offset-3">
+        <span>&nbsp &nbsp &nbsp &nbsp我叫张磊，22岁，坐标安徽合肥，大学主修工业化学方向，是一个半路出家的前端程序员，自学生涯至今坚持了四年，作为非科班毕业自然受到了很多的歧视，
+              一路上很多辛酸，但最好是自己唯一把这一份爱好坚持了下来。
+        </span>
+        <p>
+          
+        </p>
+      </div>
+    </div>
+    
+
+    <!-- 作品集 -->
+        <div class="col-md-12 col-sm-12 col-xs-12 works" id="gallery">
+          
+        <div class="sorting pull-left">
+            <div class="filter pull-left filimg" data-filter="all">Show All</div>
+            <div class="filter pull-left filimg" data-filter=".category-1">Technology</div>
+            <div class="filter pull-left filimg" data-filter=".category-2">Interest</div>
+          </div>
+      </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="galleryimg" id="galleryimg">
+            <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="1">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash004.jpg" alt="img13"/>
+						<figcaption>
+              
+							<h2>To study  <span>abroad<span></h2>
+							<p>Native written overseas study service website.</p>
+              <a href="../Blog/pro/Me/pro/update.html" target="_blank">View more</a>
+            
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="2">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash009.jpg" alt="img13"/>
+						<figcaption>
+							<h2>
+                effect<span>H5 & C3</span></h2>
+							<p>A special effect written with HTML5 and CSS3.</p>
+							<a href="../Blog/pro/tx/index.html" target="_blank">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="3">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash0010.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Desktop  <span>keyboard</span></h2>
+							<p>Using native to realize desktop keyboard effect.</p>
+							<a href="../Blog/pro/keyboard/index.html" target="_blank">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="4">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash002.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Beautiful <span>Heart</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="5">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash006.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Cute <span>Imagine</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="6">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash004.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Glowing <span>Sun</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-2 col-md-4 col-sm-6 col-xs-6" data-myorder="7">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash0010.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Darkest <span>Rain</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="8">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash002.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Beautiful <span>Heart</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+           <div class="grid mix category-1 col-md-4 col-sm-6 col-xs-6" data-myorder="9">
+					<figure class="effect-Beauty">
+						<img src="images/unsplash004.jpg" alt="img13"/>
+						<figcaption>
+							<h2>Glowing <span>Sun</span></h2>
+							<p>Beauty did not need any help. Everybody knew that.</p>
+							<a href="#">View more</a>
+						</figcaption>			
+					</figure>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+  </div>
+<div class="notes">
+    <div class="container text-center">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <p>我是那海里的那尾蓝鳞鱼,</p>
+        <p>没人知道我哭泣,</p>
+        <p>只随季风的转移奔波于南北极。</p>
+        <p>我是那海里的那尾蓝鳞鱼,</p>
+        <p>每个星月的夜里,</p>
+        <p>聆听喃喃的潮汐。</p>
+        <p>我是那海里的那尾蓝鳞鱼,</p>
+        <p>某天躺在你怀里,</p>
+        <p>你没有感受到他的泪滴。</p>
+        <p>我是那海里的那尾蓝鳞鱼,</p>
+        <p>没人知道我爱你。</p>
+      </div>
+       
+      </div>
+  </div>
+  </div>
+<div class="about" id="about">
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="alldesc">
+            <div class="col-md-6 col-sm-6 col-xs-12 centertext">
+            <p class="all-td">What You Want To Know</p>
+            <h2>Technology stack</h2>
+          </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            <p class="desc">Life can't be as good as you think But it's not as bad as you think I think people are more fragile and stronger than I ever imagined Sometimes, I may be so weak that I burst into tears at a word Sometimes I find myself walking a long way [sun] through clenched teeth</p>
+          </div>
+          </div>
+      </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="progresscount">
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-xs-6 block">
+                <div class="counter-item">
+                <h5>Ability to learn</h5>
+                <div class="timer" data-from="0" data-to="75" data-speed="5000" data-refresh-interval="75"></div>
+              </div>
+              </div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="counter-item">
+                <h5>Ability to execute</h5>
+                <div class="timer" data-from="0" data-to="90" data-speed="5000" data-refresh-interval="90"></div>
+              </div>
+              </div>
+          </div>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="progresstitle">
+                <h5>HTML5</h5>
+                <div class="progress progress-style">
+                <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%"> 80% </div>
+              </div>
+              </div>
+            <div class="progresstitle">
+                <h5>CSS3</h5>
+                <div class="progress progress-style">
+                <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100" style="width:74%"> 74% </div>
+              </div>
+              </div>
+            <div class="progresstitle">
+                <h5>JQuery</h5>
+                <div class="progress progress-style">
+                <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:65%"> 70% </div>
+              </div>
+              </div>
+              <div class="progresstitle">
+                <h5>JS</h5>
+                <div class="progress progress-style">
+                <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" style="width:65%"> 65% </div>
+              </div>
+              </div>
+          </div>
+          </div>
+      </div>
+      </div>
+  </div>
+  </div>
+<div class="testimonials" id="testimonials">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-12 col-sm-12 col-xs-12">
+        		<div class="alldesc">
+            		<div class="col-md-6 col-sm-6 col-xs-12 centertext">
+            			<p class="all-td">Front end four years</p>
+            			<h2>Story</h2>
+          			</div>
+            		<div class="col-md-6 col-sm-6 col-xs-12">
+            
+          			</div>
+          		</div>
+      		</div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            	<div class="quotes">
+                	<blockquote>
+                    	<p>Friend hello lucky enough to meet with you you must love is also a technology of the Internet speaking ashamed I am not an English major graduates for don't know much about the underlying data structure I with front-end statue is in the first year of college is that I was a foolish young think about yourself along the way learning technology has lasted for four years this is the only place I proud of myself interest is the power choose their favorite things is the most happy stick to it.</p>
+                        <p class="name">-- leizhang(2020-11-02)</p>
+                    </blockquote>
+                    <blockquote>
+                    	<p>Life can't be as good as you think But it's not as bad as you think I think people are more fragile and stronger than I ever imagined Sometimes, I may be so weak that I burst into tears at a word Sometimes I find myself walking a long way [sun] through clenched teeth</p>
+                        <p class="name">-- Maupassant</p>
+                    </blockquote>
+                </div>
+            </div>        
+        </div>
+    </div>
+</div>
+<!-- <div class="subscribe-social"> 
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-8 col-sm-12 col-xs-12">
+            	<div class="subscibe">
+                	 <form role="form">
+                     	<div class="col-md-8 col-sm-10 col-xs-12">
+  						<div class="form-group">
+    						<input type="email" class="form-control" id="email" placeholder="Enter Your Email address">
+  						</div>
+                        </div>
+                        <div class="col-md-4 col-sm-2 col-xs-12 centertext">
+  							<button type="submit" class="btn btn-or">Subscibe</button>
+                        </div>
+						</form>
+                </div>
+            </div> -->
+            <!-- <div class="col-md-4 col-sm-12 col-xs-12 text-center">
+            	<ul class="social">
+                	<li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus-square"></i></a></li>
+                    <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                </ul>
+            </div> -->
+        <!-- </div>
+    </div>
+</div> -->
+
+<div class="address" id="contact">
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-12 col-sm-12 col-xs-12">
+        		<div class="alldesc">
+            		<div class="col-md-6 col-sm-6 col-xs-12 centertext">
+            			<p class="all-td">How To Get In Touch</p>
+            			<h2>Contact me</h2>
+          			</div>
+            		<div class="col-md-6 col-sm-6 col-xs-12 info centertext">
+            			<!-- <p>10/B/195 Barcolomy Real Estate</p> -->
+                        <!-- <p>Keep Walking, America</p> -->
+                        <p>Tel No : 1317511****</p>
+                        <p>Email : huazaizl@aliyun.com</p>
+          			</div>
+          		</div>
+      		</div>        
+        </div>
+    </div>
+</div>
+<footer class="foot"> 
+	<div class="container">
+    	<div class="row">
+        	<div class="col-md-12 col-sm-12 col-xs-12">
+            	<h4 class="foot-logo">welcome back</h4>
+            </div>
+            <!-- <div class="col-md-12 col-xs-12 col-sm-12 text-center">
+            	<p class="foot-text">Copyright &copy; 2015.Company name All rights reserved.</p>
+            </div> -->
+        </div>
+    </div>
+</footer>
+<script src="js/bootstrap.min.js"></script> 
+<script src="js/typed.js" type="text/javascript"></script> 
+<script src="js/jquery.mixitup.js" type="text/javascript"></script> 
+<script type="text/javascript" src="js/jquery.countTo.js"></script> 
+<script type="text/javascript" src="js/jquery.waypoints.min.js"></script> 
+<script type="text/javascript" src="js/jquery.quovolver.js"></script>
+<script>
+$(function(){
+    var windowH = $(window).height();
+    var bannerH = $('#banner').height();
+    if(windowH > bannerH) {                            
+        $('#banner').css({'height':($(window).height() - 68)+'px'});
+		$('#bannertext').css({'height':($(window).height() - 68)+'px'});
+    }                                                                               
+    $(window).resize(function(){
+        var windowH = $(window).height();
+        var bannerH = $('#banner').height();
+        var differenceH = windowH - bannerH;
+        var newH = bannerH + differenceH;
+        var truecontentH = $('#bannertext').height();
+        if(windowH < truecontentH) {
+            $('#banner').css({'height': (newH - 68)+'px'});
+			$('#bannertext').css({'height': (newH - 68)+'px'});
+        }
+		if(windowH > truecontentH) {
+            $('#banner').css({'height': (newH - 68)+'px'});
+			$('#bannertext').css({'height': (newH - 68)+'px'});
+        }
+
+    })          
+});
+
+
+	
+	
+	
+	$(function(){
+  $('#galleryimg').mixItUp();
+});
+	/*$('.timer').each(count);*/
+	jQuery(function ($) {
+      // custom formatting example
+      $('.timer').data('countToOptions', {
+        formatter: function (value, options) {
+          return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
+        }
+      });
+ 
+      // start all the timers
+      $('#gallery').waypoint(function() {
+    $('.timer').each(count);
+	});
+ 
+      function count(options) {
+        var $this = $(this);
+        options = $.extend({}, options || {}, $this.data('countToOptions') || {});
+        $this.countTo(options);
+      }
+    });
+	
+	
+	 $('.quotes').quovolver({
+      equalHeight   : true
+    });
+	
+	
+	</script>
+<script>
+
+	$(document).ready(function () {
+
+		$(document).on("scroll", onScroll);
+
+ 
+
+		$('a[href^="#"]').on('click', function (e) {
+
+			e.preventDefault();
+
+			$(document).off("scroll");
+
+ 
+
+			$('a').each(function () {
+
+				$(this).removeClass('active');
+
+			})
+
+			$(this).addClass('active');
+
+ 
+
+			var target = this.hash;
+
+			$target = $(target);
+
+			$('html, body').stop().animate({
+
+				'scrollTop': $target.offset().top
+
+			}, 500, 'swing', function () {
+
+				window.location.hash = target;
+
+				$(document).on("scroll", onScroll);
+
+			});
+
+		});
+
+	});
+
+ 
+
+	function onScroll(event){
+
+		var scrollPosition = $(document).scrollTop();
+
+		$('.nav li a').each(function () {
+
+			var currentLink = $(this);
+
+			var refElement = $(currentLink.attr("href"));
+
+			if (refElement.position().top <= scrollPosition && refElement.position().top + refElement.height() > scrollPosition) {
+
+				$('.nav li a').removeClass("active");
+
+				currentLink.addClass("active");
+
+			}
+
+			else{
+
+				currentLink.removeClass("active");
+
+			}
+
+		});
+
+	}
+
+	</script>
+</body>
+</html>
